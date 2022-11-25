@@ -14,7 +14,3 @@ services:
 volumes:
   mymongo-data:
     driver: local
-
-networks:
-  mongo-net:
-    name: mongo-net
