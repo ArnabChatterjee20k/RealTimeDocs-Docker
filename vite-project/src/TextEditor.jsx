@@ -33,10 +33,11 @@ export const TextEditor = () => {
     
     socket.once("load-document", (document) => {
       quil.setContents(document);
+      console.log("loading");
       quil.enable(); //enabling the document after it has been sent from the server. Till then the editor will remain disabled
     });
-
     socket.emit("get-document", documentId);
+
   }, [socket, quil, documentId]);
 
   useEffect(() => {
@@ -57,6 +58,7 @@ export const TextEditor = () => {
   useEffect(() => {
     if (!quil || !socket) return;
     const handler = (delta) => {
+      console.log("recei");
       quil.updateContents(delta);
     };
 
